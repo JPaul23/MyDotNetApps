@@ -1,0 +1,39 @@
+name: MasterCI
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  push:
+    branches:
+      - master
+      - main
+      - "backend/*"
+      - "frontend/*"
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Building Apps
+        run: |
+          echo "Running Building Job"
+          exit 0
+  test:
+    name: test
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Testing Apps
+        run: |
+          echo "Running Testing Job"
+          exit 1
+
+  deployment:
+    name: deploy
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Deploying Apps
+        run: echo Running Deploying Jobs, after Building and Testing has been successfully finished
