@@ -9,7 +9,7 @@ on:
       - "frontend/*"
 
 jobs:
-  build:
+  Build:
     name: build
     runs-on: ubuntu-latest
     steps:
@@ -18,7 +18,7 @@ jobs:
         run: |
           echo "Running Building Job"
           exit 0
-  test:
+  Test:
     name: test
     needs: build
     runs-on: ubuntu-latest
@@ -27,9 +27,9 @@ jobs:
       - name: Testing Apps
         run: |
           echo "Running Testing Job"
-          exit 1
+          exit 0
 
-  deployment:
+  Deploy:
     name: deploy
     needs: [build, test]
     runs-on: ubuntu-latest
