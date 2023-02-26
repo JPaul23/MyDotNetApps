@@ -1,0 +1,17 @@
+name: FeatureCI
+run-name: ${{github.actor }} pushed update on other branches 🚀
+on:
+  push:
+    branches:
+      - "backend-*"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run a one-line script
+        run: echo "Only on featuer branches"
+      - name: Run a multi-line script
+        run: |
+          echo "Only on feature branches"
+          echo "Only on feature branches"
