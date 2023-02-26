@@ -3,14 +3,36 @@ on:
   push:
     branches:
       - master
+      - main
+      - "backend/*"
+      - "frontend/*"
+
 jobs:
   build:
+    name: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Run a one-line script
-        run: echo Hello, world!
-      - name: Run a multi-line script
+      - name: Building Apps
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo "Running Building Job"
+          exit 0
+  test:
+    name: test
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Testing Apps
+        run: |
+          echo "Running Testing Job"
+          exit 1
+
+  deployment:
+    name: deploy
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Deploying Apps
+        run: echo Running Deploying Jobs, after Building and Testing has been successfully finished
