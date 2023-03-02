@@ -1,10 +1,10 @@
-name: MasterCI
+name: FeatureCI
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     branches:
-      - master
-      - main
+      - "backend/*"
+      - "frontend/*"
 
 jobs:
   Build:

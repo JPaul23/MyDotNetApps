@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <_ShortFrameworkVersion>3.1</_ShortFrameworkVersion>
+    <_ShortFrameworkIdentifier>netcoreapp</_ShortFrameworkIdentifier>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Tye.Extensions.Configuration" Version="0.4.0-*" />
+  </ItemGroup>
+
+</Project>
